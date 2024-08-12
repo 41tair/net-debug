@@ -17,6 +17,10 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/41tair/net-debug:latest
     - name: Login to ghcr
-      run: export CR_PAT=${{ secrets.GHCR_TOKEN }}; echo $CR_PAT | docker login ghcr.io -u 41tair --password-stdin
+      uses: docker/login-actions@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_TOKEN }}
     - name: Push to registry
       run: docker push ghcr.io/41tair/net-debug:latest
