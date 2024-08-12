@@ -12,5 +12,5 @@ RUN apt update -y && apt install -y \
     nmap \
     jq \
     wget \
-    openssh-client
+    openssh-client \
     && rm -rf /var/lib/apt/lists
