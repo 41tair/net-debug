@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+LABEL org.opencontainers.image.source="https://github.com/41tair/net-debug"
 
 RUN apt update -y && apt install -y \
     curl \
